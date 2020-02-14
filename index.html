@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Exercise 2</title>
+    <script src="vue.js"></script>
+  </head>
+
+  <body>
+    <div id="exercise">
+      <!-- 1) Show an alert when the Button gets clicked -->
+      <div>
+        <button v-on:click="greetings">Show Alert</button>
+      </div>
+      <!-- 2) Listen to the "keydown" event and store the value in a data property (hint: event.target.value gives you the value) -->
+      <div>
+        <input v-on:keydown="typeIt" type="text" />
+        <span>{{value}}</span>
+      </div>
+      <!-- 3) Adjust the example from 2) to only fire if the "key down" is the ENTER key -->
+      <div>
+        <input v-on:keydown.enter="typeIt" type="text" />
+        <span>{{ value2 }}</span>
+        -->
+      </div>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#exercise",
+        data: {
+          value: "",
+          value2: ""
+        },
+        methods: {
+          greetings: function() {
+            alert("Hello Mars!");
+          },
+          typeIt: function(event) {
+            this.value2 = event.target.value;
+          }
+        }
+      });
+
+      // short version
+
+      //       <div id="exercise">
+      //             <!-- 1) Show an alert when the Button gets clicked -->
+      //     <div>
+      //                 <button v-on: click="alertMe">Show Alert</button>
+      //         </div>
+      //             <!--2) Listen to the "keydown" event and store the value in a data property(hint: event.target.value gives you the value)-- >
+      //                 <div>
+      //                     <input type="text" v-on: keydown="value = $event.target.value">
+      //         <p>{‌{value}}</p>
+      //                 </div>
+      //                 <!--3) Adjust the example from 2) to only fire if the "key down" is the ENTER key-- >
+      //                     <div>
+      //                         <input type="text" v-on: keydown.enter="value = $event.target.value">
+      //         <p>{‌{value}}</p>
+      //                     </div>
+      // </div >
+    </script>
+  </body>
+</html>
